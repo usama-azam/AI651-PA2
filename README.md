@@ -1,6 +1,6 @@
 # AI651 — Assignment 2 (Deep Learning for Space, Time and Graphs)
 
-Author: <your name>, LUMS, Fall 2026
+Author: Usama Azam, LUMS, Fall 2026
 
 ## Contents
 - `notebooks/` — Q2 code, step by step:
