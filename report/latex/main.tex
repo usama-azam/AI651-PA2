@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.1cm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs,tabularx,longtable,array,multirow,makecell}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,backgrounds,shapes.geometric}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\usepackage{titlesec}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\captionsetup{font=small,labelfont=bf}
+\setlist{itemsep=2pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.18}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\definecolor{cblue}{HTML}{2a78d6}
+\definecolor{corange}{HTML}{eb6834}
+\definecolor{cgreen}{HTML}{1baf7a}
+\definecolor{cgray}{HTML}{52514e}
+\definecolor{boxyellow}{HTML}{fbe59a}
+\definecolor{boxblue}{HTML}{dbe9fb}
+\definecolor{boxgreen}{HTML}{dff3e8}
+\newcommand{\qa}[1]{\par\medskip\noindent\textbf{#1}\quad}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ftime}{f_{\mathrm{time}}}
+\newcommand{\fgraph}{f_{\mathrm{graph}}}
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\includegraphics[width=3.4cm]{fig/lums_logo.png}\par\vspace{0.6cm}
+{\large Lahore University of Management Sciences\\School of Science and Engineering, Department of Artificial Intelligence\par}
+\vspace{1.6cm}
+{\Large AI651 -- Deep Learning for Space, Time and Graphs\par}
+\vspace{0.4cm}
+{\Huge\bfseries Assignment 2 Report\par}
+\vspace{0.3cm}
+{\large Question 1: River Forecasting Proposal\\Question 2: Motion or Memory?\par}
+\vspace{2cm}
+{\large Usama Azam\\Roll number 25280109\par}
+\vspace{1.2cm}
+{\large\textbf{GitHub repository:}\\\url{https://github.com/uazam1163-debug/DL4STG-PA2}\par}
+\vfill
+{\large Fall 2026 \quad\textbullet\quad Submitted October 2026\par}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\input{q1.tex}
+\clearpage
+\input{q2.tex}
+\clearpage
+\input{ai.tex}
+
+\end{document}

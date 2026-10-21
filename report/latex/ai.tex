@@ -1,0 +1,25 @@
+\section*{Appendix: Use of generative AI}
+\addcontentsline{toc}{section}{Appendix: Use of generative AI}
+
+\textbf{Tool.} Claude (Anthropic), used through the Claude desktop app between 13 and 21 October 2026, as a tutor and assistant. As required by the course AI policy, this appendix lists my prompts, what the AI produced, and the edits I made. A per-question log is also in the repository (\texttt{ai\_log.md}). All training and evaluation runs were executed by me on Kaggle; the AI never ran my real experiments (it only tested notebooks on synthetic data).
+
+\small
+\begin{longtable}{@{}p{2.5cm}p{4.3cm}p{5.0cm}p{4.0cm}@{}}
+\toprule
+\textbf{Part} & \textbf{My prompt (short)} & \textbf{AI output} & \textbf{My work / edits}\\
+\midrule\endhead
+Understanding the task & ``explain me this assignment completely''; ``a fast and smart way of doing this assignment'' & Explanation of both questions; a day-by-day plan. & Followed the plan; no text used in the report. \\
+Q2 Step 1 (data, transforms, windows, Table 1) & ``how to start''; ``lets do it on kaggle''; ``elaborate cell 3'' & Kaggle notebook scaffold (loading, splits, Table 1 checker) with explanations; the four functions were left as TODOs. & I wrote \texttt{mirror}, \texttt{rotate}, \texttt{make\_window}, \texttt{apply\_g\_inverse}; the AI pointed out my mistakes (e.g.\ \texttt{k=a} in \texttt{rot90}, the target mask) and I fixed them. \\
+Q2 Step 2 (Figure 1) & ``explain the whole concept, then I will implement'' & Notebook scaffold (Farneback call, plotting); explanation of optical flow. & I wrote \texttt{keep\_mask} and \texttt{direction\_deg}. \\
+ConvLSTM background & ``explain this ConvLSTM paper with diagrams''; ``draw the FC-LSTM / ConvLSTM diagram'' & A 17-page LaTeX study guide and diagrams (Shi et al., 2015). & For my own study only; not used in the report. \\
+Q2 Step 3 (model A) & ``explain everything in detail, after that I will implement''; later ``give me the codes in cells'' & Scaffold with automatic checks; after my attempts, a completed reference version of the cells. & I wrote \texttt{ConvLSTMCell.forward}, \texttt{ModelA.step/forward} (with corrections); the final cells match the reference. \\
+Q2 Step 4 (training) & ``what to do while GPU training'' & Training notebook (protocol, seeds, timing, logs, models A--D). & I wrote \texttt{masked\_mse}; I ran all training on Kaggle. \\
+Q2 Steps 5--6 (evaluation, Tables 2--6, Figures 2--6) & ``give me the notebook'' & Evaluation notebooks with automatic checks. & I wrote the $C_T$/$E_T$ lines and the line of \texttt{symmetrise} (the AI corrected a wrong function name); I ran both notebooks. \\
+Model D & ``model D'' & Explanation of reach levers; table of candidate designs with parameter counts and measured reach; the 3-line \texttt{ModelD} class after my choice. & I computed D1's reach and the over-budget layer myself and chose design D2. \\
+Q2.1--Q2.4, Q2.6--Q2.10, Q2.12--Q2.17 & e.g.\ ``help me write it''; ``write a final polished version''; ``give me final ans'' & Taught each answer through check questions (typed or multiple choice); then wrote the final wording from my answers and my results, and corrected my errors (e.g.\ Q2.1 median vs.\ uniform line; Q2.9 reach agreement; Q2.10 ``bigger kernels''; Q2.14 verdict on C; Q2.15 which symmetry is exact). For Q2.8 and Q2.16 it computed extra numbers from my result files. & I answered the checks, made the judgements, and checked each answer against my tables and figures. \\
+Q2.5 and Q2.11 (predictions) & ``write it for me'' & Declined to choose the predictions; offered reasons drawn from my own Q2.1--Q2.3 results as options, then turned my choices into sentences. & All predictions and reasons were chosen by me before the experiments; reproduced unedited. \\
+Q1 (all six headings) & ``tutorial question 1''; ``I want to complete the assignment today'' & Read the course's Q1 tutorial slides with me; after I made the main design decisions, wrote the full Q1 text, assumptions, data table, equations and the TikZ diagram, following the tutorial's skeleton. & I chose: 6-h window, directed graph with distances, median + 10/90\% quantiles. I reviewed the text and can explain each part. \\
+Report and repository & ``LaTeX $\to$ PDF'' & Assembled this LaTeX report (tables converted from my result files, my figures inserted) and drafted \texttt{README.md} and \texttt{ai\_log.md}. & Reviewed and submitted. \\
+\bottomrule
+\end{longtable}
+\normalsize
