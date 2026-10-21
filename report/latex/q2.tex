@@ -209,6 +209,7 @@ D & 4 cells = 16 px & 4 cells = 16 px & 3 cells = 12 px & \textbf{16 px} & 480,7
 
 \begin{table}[H]
 \centering\small
+\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{@{}lccccc@{}}
 \toprule
 \textbf{Model} & \textbf{$E^{(5)}$ 1$\times$} & \textbf{$C_M$} & \textbf{$E_M$} & \textbf{$C_R$} & \textbf{$E_R$} \\
@@ -219,14 +220,16 @@ C & \makecell{0.0267\\[-1pt]{\tiny(0.0272, 0.0263)}} & \makecell{0.00135\\[-1pt]
 D & \makecell{0.0285\\[-1pt]{\tiny(0.0291, 0.0280)}} & \makecell{$7.74\times10^{-4}$\\[-1pt]{\tiny($7.11\times10^{-4}$, $8.38\times10^{-4}$)}} & \makecell{0.0286\\[-1pt]{\tiny(0.0291, 0.0281)}} & \makecell{0.00171\\[-1pt]{\tiny(0.00142, 0.00199)}} & \makecell{0.0293\\[-1pt]{\tiny(0.0297, 0.0289)}} \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \caption*{\textbf{Table 5 (part a).} Models A--D at 1$\times$ (test set, $t=1$): accuracy and consistency. Entries: mean (seed 0, seed 1).}
 \end{table}
 
 \begin{table}[H]
 \centering\small
+\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-\textbf{Model} & \textbf{$E^{(2)}$ 1$\times$} & \textbf{$E^{(2)}$ 2$\times$} & \textbf{$E^{(2)}$ 3$\times$} & \textbf{Parameters} & \textbf{Train time / epoch (s)} & \textbf{Inference (s)} \\
+\textbf{Model} & \textbf{$E^{(2)}$ 1$\times$} & \textbf{$E^{(2)}$ 2$\times$} & \textbf{$E^{(2)}$ 3$\times$} & \textbf{Parameters} & \textbf{\makecell{Train time\\per epoch (s)}} & \textbf{\makecell{Inference\\time (s)}} \\
 \midrule
 A & \makecell{0.0189\\[-1pt]{\tiny(0.0191, 0.0186)}} & \makecell{0.0442\\[-1pt]{\tiny(0.0435, 0.0449)}} & \makecell{0.0511\\[-1pt]{\tiny(0.0509, 0.0514)}} & 480,784 & \makecell{11.0\\[-1pt]{\tiny(10.9, 11.2)}} & \makecell{0.386\\[-1pt]{\tiny(0.387, 0.386)}} \\
 B & \makecell{0.0192\\[-1pt]{\tiny(0.0197, 0.0187)}} & \makecell{0.0431\\[-1pt]{\tiny(0.0433, 0.0429)}} & \makecell{0.0490\\[-1pt]{\tiny(0.0496, 0.0483)}} & 480,784 & \makecell{10.8\\[-1pt]{\tiny(10.8, 10.9)}} & \makecell{0.388\\[-1pt]{\tiny(0.387, 0.388)}} \\
@@ -234,6 +237,7 @@ C & \makecell{0.0232\\[-1pt]{\tiny(0.0237, 0.0227)}} & \makecell{0.0288\\[-1pt]{
 D & \makecell{0.0259\\[-1pt]{\tiny(0.0264, 0.0254)}} & \makecell{0.0296\\[-1pt]{\tiny(0.0300, 0.0292)}} & \makecell{0.0332\\[-1pt]{\tiny(0.0335, 0.0328)}} & 480,784 & \makecell{14.8\\[-1pt]{\tiny(14.8, 14.8)}} & \makecell{0.549\\[-1pt]{\tiny(0.548, 0.549)}} \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \caption*{\textbf{Table 5 (part b).} Models A--D: speed and cost (T4 GPU). Training time per epoch from the training logs; inference time = predicting all 1,000 original test videos at batch size 32 under \texttt{eval()} and \texttt{no\_grad()}, measured in one session for all models.}
 \end{table}
 
@@ -279,27 +283,31 @@ With $h=M$ and $h=R$ this gives $\bar f(T(X))=T(\bar f(X))$, so $C_M=C_R=0$ exac
 
 \begin{table}[H]
 \centering\small
+\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{@{}lccccc@{}}
 \toprule
 \textbf{Model} & \textbf{$E^{(5)}$ 1$\times$} & \textbf{$C_M$} & \textbf{$E_M$} & \textbf{$C_R$} & \textbf{$E_R$} \\
 \midrule
 symmetrised B & \makecell{0.0223\\[-1pt]{\tiny(0.0227, 0.0218)}} & \makecell{$7.63\times10^{-17}$\\[-1pt]{\tiny($8.24\times10^{-17}$, $7.03\times10^{-17}$)}} & \makecell{0.0223\\[-1pt]{\tiny(0.0227, 0.0218)}} & \makecell{$6.17\times10^{-17}$\\[-1pt]{\tiny($6.68\times10^{-17}$, $5.67\times10^{-17}$)}} & \makecell{0.0223\\[-1pt]{\tiny(0.0227, 0.0218)}} \\
-symmetrised D (final) & \makecell{0.0284\\[-1pt]{\tiny(0.0289, 0.0278)}} & \makecell{$6.54\times10^{-17}$\\[-1pt]{\tiny($6.53\times10^{-17}$, $6.55\times10^{-17}$)}} & \makecell{0.0284\\[-1pt]{\tiny(0.0289, 0.0278)}} & \makecell{$5.15\times10^{-17}$\\[-1pt]{\tiny($5.09\times10^{-17}$, $5.21\times10^{-17}$)}} & \makecell{0.0284\\[-1pt]{\tiny(0.0289, 0.0278)}} \\
+\makecell[l]{symmetrised D\\(final model)} & \makecell{0.0284\\[-1pt]{\tiny(0.0289, 0.0278)}} & \makecell{$6.54\times10^{-17}$\\[-1pt]{\tiny($6.53\times10^{-17}$, $6.55\times10^{-17}$)}} & \makecell{0.0284\\[-1pt]{\tiny(0.0289, 0.0278)}} & \makecell{$5.15\times10^{-17}$\\[-1pt]{\tiny($5.09\times10^{-17}$, $5.21\times10^{-17}$)}} & \makecell{0.0284\\[-1pt]{\tiny(0.0289, 0.0278)}} \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \caption*{\textbf{Table 6 (part a).} Symmetrised models at 1$\times$ (test set, $t=1$). $C_M$, $C_R$ in scientific notation. Entries: mean (seed 0, seed 1).}
 \end{table}
 
 \begin{table}[H]
 \centering\small
+\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
-\textbf{Model} & \textbf{$E^{(2)}$ 1$\times$} & \textbf{$E^{(2)}$ 2$\times$} & \textbf{$E^{(2)}$ 3$\times$} & \textbf{Parameters} & \textbf{Train time / epoch (s)} & \textbf{Inference (s)} \\
+\textbf{Model} & \textbf{$E^{(2)}$ 1$\times$} & \textbf{$E^{(2)}$ 2$\times$} & \textbf{$E^{(2)}$ 3$\times$} & \textbf{Parameters} & \textbf{\makecell{Train time\\per epoch (s)}} & \textbf{\makecell{Inference\\time (s)}} \\
 \midrule
 symmetrised B & \makecell{0.0187\\[-1pt]{\tiny(0.0192, 0.0183)}} & \makecell{0.0425\\[-1pt]{\tiny(0.0427, 0.0423)}} & \makecell{0.0482\\[-1pt]{\tiny(0.0488, 0.0476)}} & 480,784 & \makecell{10.8\\[-1pt]{\tiny(10.8, 10.9)}} & \makecell{3.24\\[-1pt]{\tiny(3.22, 3.26)}} \\
-symmetrised D (final) & \makecell{0.0258\\[-1pt]{\tiny(0.0263, 0.0253)}} & \makecell{0.0296\\[-1pt]{\tiny(0.0300, 0.0291)}} & \makecell{0.0331\\[-1pt]{\tiny(0.0335, 0.0327)}} & 480,784 & \makecell{14.8\\[-1pt]{\tiny(14.8, 14.8)}} & \makecell{4.73\\[-1pt]{\tiny(4.69, 4.78)}} \\
+\makecell[l]{symmetrised D\\(final model)} & \makecell{0.0258\\[-1pt]{\tiny(0.0263, 0.0253)}} & \makecell{0.0296\\[-1pt]{\tiny(0.0300, 0.0291)}} & \makecell{0.0331\\[-1pt]{\tiny(0.0335, 0.0327)}} & 480,784 & \makecell{14.8\\[-1pt]{\tiny(14.8, 14.8)}} & \makecell{4.73\\[-1pt]{\tiny(4.69, 4.78)}} \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \caption*{\textbf{Table 6 (part b).} Symmetrised models: speed and cost (T4 GPU). Training time is that of the underlying learned model (symmetrisation needs no training); inference time includes all eight transformations, forward passes, inverse transformations and the averaging.}
 \end{table}
 
